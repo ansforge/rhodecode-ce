@@ -18,12 +18,10 @@ app "ans/rhodecode" {
 
   # Build specifies how an application should be deployed.
   build {
-    build {
         use "docker-pull" {
            image = "ans/rhodecode-ce"
 	   tag = "latest"
-        }
-    }
+	}
   }
 
   # Deploy to Nomad
