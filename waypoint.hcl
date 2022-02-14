@@ -1,7 +1,7 @@
-project = "rhodecode"
+project = "ans/rhodecode"
 
 # Labels can be specified for organizational purposes.
-labels = { "domaine" = "rhodecode" }
+labels = { "domaine" = "ans" }
 
 runner {
   enabled = true
