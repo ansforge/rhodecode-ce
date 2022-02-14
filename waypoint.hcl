@@ -18,8 +18,11 @@ app "ans/rhodecode" {
 
   # Build specifies how an application should be deployed.
   build {
-    use "docker" {
-      dockerfile = "${path.app}/${var.dockerfile_path}"
+    build {
+        use "docker-pull" {
+           image = "ans/rhodecode-ce"
+	   tag = "latest"
+        }
     }
 
     registry {
