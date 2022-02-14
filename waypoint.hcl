@@ -24,14 +24,6 @@ app "ans/rhodecode" {
 	   tag = "latest"
         }
     }
-
-    registry {
-      use "docker" {
-        image = "${var.registry_path}/rhodecode-ce"
-        tag   = gitrefpretty()
-		encoded_auth = filebase64("/secrets/dockerAuth.json")
-	  }
-    }
   }
 
   # Deploy to Nomad
