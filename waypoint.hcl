@@ -14,7 +14,7 @@ runner {
 }
 
 # An application to deploy.
-app "rhodecode" {
+app "ans/rhodecode" {
 
   # Build specifies how an application should be deployed.
   build {
