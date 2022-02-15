@@ -51,8 +51,8 @@ job "rhodecode" {
         image   = "${rhodecode_ce_name_image_docker}:${rhodecode_ce_version_image_docker}"
         ports   = ["ui"]
 		volumes = [
-                   "name=${rhodecode_ce_name_volume_db},io_priority=high,size=${rhodecode_ce_size_volume_db},repl=3:/var/lib/postgresql",
-                   "name=${rhodecode_ce_name_volume_repos},io_priority=high,size=${rhodecode_ce_size_volume_repos},repl=3:/root/my_dev_repos",
+                   "name=${name_volume_db},io_priority=high,size=${size_volume_db},repl=3:/var/lib/postgresql",
+                   "name=${name_volume_repos},io_priority=high,size=${size_volume_repos},repl=3:/root/my_dev_repos",
                    "name=rhodecode-apache-mod-dav,io_priority=high,size=1,repl=3:/rhodecode-develop/rhodecode-enterprise-ce/configs/mod-dav",
                    "name=rhodecode-data,io_priority=high,size=1,repl=3:/rhodecode-develop/rhodecode-enterprise-ce/configs/data"
                  ]
@@ -60,8 +60,8 @@ job "rhodecode" {
       }
       # resource config
       resources {
-        cpu    = ${rhodecode_ce_cpu}
-        memory = ${rhodecode_ce_memory}
+        cpu    = ${cpu}
+        memory = ${memory}
       }
     }
   }
