@@ -19,8 +19,8 @@ app "ans/rhodecode" {
   # Build specifies how an application should be deployed.
   build {
         use "docker-pull" {
-           image = "var.rhodecode_ce_name_image_docker"
-	   tag = "rhodecode_ce_version_image_docker"
+           image = var.rhodecode_ce_name_image_docker
+	   tag = var.rhodecode_ce_version_image_docker
         }
   }
 
