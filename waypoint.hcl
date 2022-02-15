@@ -18,10 +18,16 @@ app "ans/rhodecode" {
 
   # Build specifies how an application should be deployed.
   build {
-        use "docker-pull" {
-           image = "ans/rhodecode-ce"
-	   tag = "latest"
-	}
+        use "docker" {
+           dockerfile = "${path.app}/${var.dockerfile_path}"
+        }
+        registry {
+           use "docker" {
+             image = "${var.registry_path}/rhodecode"
+             tag   = gitrefpretty()
+             encoded_auth = filebase64("/secrets/dockerAuth.json")
+           }
+        }
   }
 
   # Deploy to Nomad
