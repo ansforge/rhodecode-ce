@@ -21,6 +21,9 @@ COPY rhodecode-enterprise-ce/production.ini /rhodecode-develop/rhodecode-enterpr
 COPY rhodecode-vcsserver/production.ini /rhodecode-develop/rhodecode-vcsserver/configs/production.ini
 COPY custom_svn_conf.mako /root/custom_svn_conf.mako
 
+#Hooks
+COPY hooks.py /rhodecode-develop/rhodecode-enterprise-ce/rhodecode/config/rcextensions
+
 #Add file rhodecode.conf to configure dav_mod_svn
 COPY mod_dav_svn.conf /rhodecode-develop/rhodecode-enterprise-ce/configs/mod-dav/mod_dav_svn.conf
 COPY default.conf /etc/apache2/sites-available/default.conf
