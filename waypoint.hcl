@@ -109,5 +109,5 @@ variable "rhodecode_ce_name_image_docker" {
 
 variable "rhodecode_ce_version_image_docker" {
   type = string
-  default = "1.0.3"
+  default = "1.0.4"
 }
