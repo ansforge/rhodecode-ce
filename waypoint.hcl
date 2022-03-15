@@ -18,12 +18,9 @@ app "ans/rhodecode" {
 
   # Build specifies how an application should be deployed.
   build {
-        #use "docker-pull" {
-        #   image = var.rhodecode_ce_name_image_docker
-	#   tag = var.rhodecode_ce_version_image_docker
-        #}
-	use "docker" {
-           dockerfile = "${path.app}/${var.dockerfile_path}"
+        use "docker-pull" {
+			image = var.rhodecode_ce_name_image_docker
+			tag = var.rhodecode_ce_version_image_docker
         }
   }
 
@@ -31,17 +28,17 @@ app "ans/rhodecode" {
   deploy {
     use "nomad-jobspec" {
       jobspec = templatefile("${path.app}/rhodecode.nomad.tpl", {
-	datacenter = var.datacenter
-	proxy_host = var.proxy_host
-	proxy_port = var.proxy_port
-	name_volume_db = var.name_volume_db
-	name_volume_repos = var.name_volume_repos
-	size_volume_db = var.size_volume_db
-	size_volume_repos = var.size_volume_repos
-	cpu = var.cpu
-	memory = var.memory
-	rhodecode_ce_name_image_docker = var.rhodecode_ce_name_image_docker
-	rhodecode_ce_version_image_docker = var.rhodecode_ce_version_image_docker	      	
+		datacenter = var.datacenter
+		proxy_host = var.proxy_host
+		proxy_port = var.proxy_port
+		name_volume_db = var.name_volume_db
+		name_volume_repos = var.name_volume_repos
+		size_volume_db = var.size_volume_db
+		size_volume_repos = var.size_volume_repos
+		cpu = var.cpu
+		memory = var.memory
+		rhodecode_ce_name_image_docker = var.rhodecode_ce_name_image_docker
+		rhodecode_ce_version_image_docker = var.rhodecode_ce_version_image_docker	      	
       })
     }
   }
